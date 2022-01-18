@@ -2,6 +2,7 @@ const http = require('http')
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
+const PORT = process.env.PORT || 3000;
 let filename = '';
 let success = true;
 const server = http.createServer((req,res)=>{
@@ -41,4 +42,6 @@ const server = http.createServer((req,res)=>{
 		})
 	}
 })
-server.listen(3000)
+server.listen(PORT, ()=>{
+	console.log(`Server started at port ${PORT}`);
+})
